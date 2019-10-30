@@ -2,6 +2,7 @@ const Hello = require("../models/Hello");
 
 exports.returnFake = (res) => {
   //returns fake data, nothing calls this though
+  console.log("helllllllllllllllllo");
   let serverHello = new Hello();
   serverHello._id = '99999';
   serverHello.value = 'success';
