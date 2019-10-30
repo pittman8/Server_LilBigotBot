@@ -4,20 +4,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const TaskSchema = new Schema({
-  _id: {
+const HelloSchema = new Schema({
+	  _id: {
     type: String,
     required: false
   },
-  taskName: {
+  value: {
     type: String,
-    required: true
-  },
-  createdOn: {
-    type: Date,
-    default: Date.now  // this line means we don't have to overtly set the time 
-    // the task was created, it will be set as we create a new document
+    required: false
   }
 });
 
-module.exports = mongoose.model("Tasks", TaskSchema);
+module.exports = mongoose.model("Hello", HelloSchema);
