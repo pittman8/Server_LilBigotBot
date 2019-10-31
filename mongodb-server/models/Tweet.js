@@ -4,12 +4,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const TaskSchema = new Schema({
+const TweetSchema = new Schema({
   _id: {
     type: String,
     required: false
   },
-  taskName: {
+  handle: {
+    type: String,
+    required: true
+  },
+  text: {
     type: String,
     required: true
   },
@@ -20,4 +24,4 @@ const TaskSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("Tasks", TaskSchema);
+module.exports = mongoose.model("Tweets", TweetSchema);
