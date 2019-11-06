@@ -23,14 +23,8 @@ exports.returnHello = (req, res) => {
 
 
 }).then(function(value){
-<<<<<<< HEAD
-  console.log(value[3]);
-  console.log(typeof value);
-  serverHello.tweetObject = value;
-=======
   serverHello.value = value
   updateStats();
->>>>>>> 8d189238d32b7defb0ed1a93d5bd602d10eb8daf
   res.json(serverHello);
   var stringify = JSON.parse(value);
  // console.log(stringify);
