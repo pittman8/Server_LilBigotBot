@@ -8,8 +8,7 @@ const cors = require('cors')  // using this module to solve CORS problem
 // note the extra line in package.json to download this code
 
 var corsOptions = {
-//origin: 'http://localhost:4200',
-origin: 'https://bigotbotclient.azurewebsites.net',   // this URL must match the URL that the Angular app will call from
+//origin: ['http://localhost:4200', 'https://bigotbotclient.azurewebsites.net', 'bigotbotclient.azurewebsites.net' ],   // this URL must match the URL that the Angular app will call from
 //origin: 'kurtangularappfall2019.azurewebsites.net',   // this URL must match the URL that the Angular app will call from
 optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
