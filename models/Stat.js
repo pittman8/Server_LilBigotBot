@@ -4,19 +4,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const HelloSchema = new Schema({
-	  _id: {
+const StatSchema = new Schema({
+  _id: {
     type: String,
     required: false
   },
-  value: {
-    type: String,
-    required: false
+  Connections: {
+    type: Number,
+    required: true
   },
-  tweetObject: {
-    type: Object,
-    required: false
+  Slurs: {
+    type: Number,
+    required: true
   }
 });
 
-module.exports = mongoose.model("Hello", HelloSchema);
+module.exports = mongoose.model("Stats", StatSchema);
