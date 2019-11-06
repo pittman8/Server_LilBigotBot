@@ -26,13 +26,43 @@ exports.createNewStat = (req, res) => {
   });
 };
 
-exports.readStat = (req, body) => {
-  Stat.findById(req.params.statid, (err, stat) => {
+exports.readStat = (req, res) => {
+  Stat.findById(1, (err, stat) => {
     if (err) {
       res.status(500).send(err);
     }
     res.status(200).json(stat);
   });
+};
+
+exports.readStatret = (req, res) => {
+  return new Promise(function(resolve,reject){
+  Stat.findById(1, (err, stat) => {
+    if (err) {
+      return err;
+    }
+    console.log(stat);
+    resolve(stat);
+  });
+})
+};
+
+exports.updateStatret = (req, res) => {
+  //console.log('stat id at server is 1');
+  return new Promise(function(resolve,reject){
+  Stat.findOneAndUpdate(
+    { _id: 1 },  // don't know who changed the name from _id
+    req,
+    { new: true },  // true or false to let it add if not present?
+    (err, stat) => {
+      if (err) {
+        reject(err);
+      }
+      //console.log(stat);
+      resolve(stat);
+    }
+  );
+  })
 };
 
 exports.updateStat = (req, res) => {
