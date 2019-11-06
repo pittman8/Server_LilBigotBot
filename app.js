@@ -5,7 +5,7 @@ const tweetController = require("./controllers/TweetController");
 const statController = require("./controllers/StatController");
 const helloController = require("./controllers/HelloController");
 const cors = require('cors')  // using this module to solve CORS problem
-// note the extra line in package.json to download this code
+
 
 var corsOptions = {
 //origin: 'http://localhost:4200',
