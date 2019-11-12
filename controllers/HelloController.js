@@ -2,6 +2,19 @@ const Hello = require("../models/Hello");
 const twitt = require("./Twittercontrol");
 const stats = require("./StatController");
 
+getQueryString = () => {
+  const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+  let queryString = '';
+  for (i=0;i<slurBank.length; i++) {
+    queryString += ' ' + slurBank[i]
+    if (i<slurBank.length-1) {
+      queryString += ' OR'
+    }
+
+  }
+  return queryString;
+}
+
 exports.returnFake = (res) => {
   //returns fake data, nothing calls this though
   let serverHello = new Hello();
@@ -13,10 +26,11 @@ exports.returnFake = (res) => {
 exports.returnHello = (req, res) => {
   //recieves a Hello and returns it
   let serverHello = new Hello(req.body);
-  serverHello._id = '99999';
-  new Promise(function(resolve, reject) {
 
-    let testo = twitt.twitconn(serverHello.value)
+  let u = req.body.value;
+  let s = getQueryString();
+  new Promise(function(resolve, reject) {
+    let testo = twitt.twitconn(u, s)
     //console.log(testo);
     //console.log(serverHello.value);
     resolve(testo);
