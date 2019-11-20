@@ -7,11 +7,13 @@ var client = new Twitter({
   access_token_secret: '55rd6ZJyf6nJgm7PrU1NiXEhkL5eRkH6HRdIoR13ed10k'
 });
  
-exports.twitconn = (req, res) => {
-let tweetout = '';
-var params = {screen_name: 'isit_test_account'};
+exports.twitconn = (u, s, res) => {
+//let tweetout = '';
+//var params = {screen_name: 'isit_test_account'};
+//let queryString = getQueryString();
+//console.log('query: ' + queryString);
 return new Promise(function(resolve,reject){
-    client.get('search/tweets', {q: 'from:'+req+' great'}, function(error, tweets, response) {
+    client.get('search/tweets', {q: 'from:'+u+s}, function(error, tweets, response) {
         //console.log(tweets);
         //this.tweetout = json(tweets);
         resolve(JSON.stringify(tweets));
