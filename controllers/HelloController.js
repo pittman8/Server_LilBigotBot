@@ -42,23 +42,32 @@ exports.returnHello = (req, res) => {
   
   
   var stringify = JSON.parse(value);
- // console.log(stringify);
-  console.log(stringify.statuses[0].id);
-  console.log(stringify.statuses.length);
+  console.log(stringify);
+  //console.log(stringify.statuses[0].id);
+  //console.log(stringify.statuses.length);
   var slurcount = 0;
-  for(var i = 0; i < stringify.statuses.length; i++) {
-    //console.log(stringify.statuses[i].id);
-    slurcount++;
+  if(stringify.statuses.length > 0){
+    console.log("none");
+    for(var i = 0; i < stringify.statuses.length; i++) {
+      //console.log(stringify.statuses[i].id);
+      slurcount++;
+    }
+    
+    
+    serverHello.value.Slurs = slurcount;
+    console.log(stringify.statuses[0].user.screen_name);
+    updateRanking(stringify.statuses[0].user.screen_name);
+  }else{
+    updateRanking(u);
   }
+  
+  
   serverHello.value.Slurs = slurcount;
   updateStats(slurcount);
-  console.log(stringify.statuses[0].user.screen_name);
-  updateRanking(stringify.statuses[0].user.screen_name);
   res.json(serverHello);
 })
   //res.json(serverHello);
 };
-
 
 updateStats = (slurs) =>{
 new Promise(function(resolve, reject) {
