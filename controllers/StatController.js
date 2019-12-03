@@ -47,6 +47,7 @@ exports.readStatret = (req, res) => {
 })
 };
 
+//Update stat document and returns a promise
 exports.updateStatret = (req, res) => {
   //console.log('stat id at server is 1');
   return new Promise(function(resolve,reject){
@@ -65,6 +66,8 @@ exports.updateStatret = (req, res) => {
   })
 };
 
+
+//Update stat document for calling directly
 exports.updateStat = (req, res) => {
   //console.log('stat id at server is 1');
   Stat.findOneAndUpdate(

@@ -13,7 +13,8 @@ mongoose.set('useFindAndModify', false);
 
 const options = {
   reconnectTries: Number.MAX_VALUE,
-  poolSize: 10
+  poolSize: 10,
+  useUnifiedTopology: true
 };
 
 mongoose.connect(dbURI, options).then(
